@@ -249,9 +249,6 @@ Hackademics/
 ### Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Shruti-123098/Hackademics.git
-cd Hackademics
 
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -355,13 +352,7 @@ Handles AI-enhanced resume creation and management.
 
 ---
 
-## Team
 
-| Role | Name |
-|---|---|
-| **Team Leader** | Shreyash Jena |
-| **Team Member** | Shruti Patro |
-| **Team Member** | Siddhartha Mitra |
 
 **Domain:** Education  
 **Problem Statement:** ED01 — AI-Powered Employment Portal
