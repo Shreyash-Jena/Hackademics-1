@@ -98,7 +98,7 @@ from django.conf import settings
 def parse_roadmap_with_gemini(roadmap_text: str):
     genai.configure(api_key=settings.GEMINI_API_KEY)
 
-    model = genai.GenerativeModel("gemini-2.5-flash")
+    model = genai.GenerativeModel(settings.GEMINI_MODEL)
 
     # Prompt to extract checklist-style JSON from the roadmap
     prompt = f"""
@@ -284,7 +284,7 @@ def skill_gap_view(request):
         current_skills = profile.skills or ''
         try:
             genai.configure(api_key=settings.GEMINI_API_KEY)
-            model = genai.GenerativeModel("gemini-2.5-flash")
+            model = genai.GenerativeModel(settings.GEMINI_MODEL)
             prompt = f"""You are a career advisor. Analyze the skill gap between the user's current skills and the requirements for the role of "{target_role}".
 
 Current Skills: {current_skills}

@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .utils import generate_questions_for_job, save_generated_questions
 from .models import Question
-from .utils import evaluate_answer
-from django.db.models import Avg
 
 
 def generate_test_questions(request):
@@ -26,13 +24,28 @@ def view_questions(request, job_role):
 
 from .models import CompetencyTestSession, Question, Answer
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 @login_required
 def start_test(request, job_role):
-    session = CompetencyTestSession.objects.create(user=request.user, job_role=job_role)
-
-    # Get first question for job
+    # Check if questions exist for this job role
     question = Question.objects.filter(job_role=job_role).order_by('?').first()
+    
+    if not question:
+        # No questions exist — generate them first
+        from .utils import generate_questions_for_job, save_generated_questions
+        try:
+            raw_output = generate_questions_for_job(job_role)
+            save_generated_questions(raw_output, job_role)
+            question = Question.objects.filter(job_role=job_role).order_by('?').first()
+        except Exception:
+            pass
+    
+    if not question:
+        messages.error(request, f'No questions available for "{job_role}". Please generate questions first.')
+        return redirect('generate_test')
+    
+    session = CompetencyTestSession.objects.create(user=request.user, job_role=job_role)
     return redirect('question', session_id=session.id, question_id=question.id)
 
 @login_required
@@ -41,21 +54,14 @@ def question_view(request, session_id, question_id):
     question = Question.objects.get(id=question_id)
 
     if request.method == 'POST':
-        answer= request.POST.get('answer')
-        my_answer = Answer.objects.create(
+        answer = request.POST.get('answer')
+        # Just save the answer - evaluation happens at the end
+        Answer.objects.create(
             session=session,
             question=question,
             selected_answer=answer,
-            is_correct=False  # Optional: Add answer checking later
+            is_correct=False  # Will be updated after batch evaluation
         )
-        
-
-        # After saving the answer
-        score = evaluate_answer(question.text, answer)
-        Answer.objects.filter(id=my_answer.id).update(
-            is_correct=score >= 0.5  # Binary correctness
-        )
-
 
         # Fetch next unanswered question
         answered_ids = Answer.objects.filter(session=session).values_list('question_id', flat=True)
@@ -64,9 +70,7 @@ def question_view(request, session_id, question_id):
         if next_question:
             return redirect('question', session_id=session.id, question_id=next_question.id)
         else:
-            session.completed = True
-            session.score = 0  # Optional: add real scoring
-            session.save()
+            # All questions answered - redirect to evaluation
             return redirect('test_result', session_id=session.id)
         
         
@@ -81,18 +85,46 @@ def test_result(request, session_id):
     session = CompetencyTestSession.objects.get(id=session_id, user=request.user)
     answers = Answer.objects.filter(session=session)
     
-    score = Answer.objects.filter(session=session).aggregate(avg_score=Avg('is_correct'))['avg_score'] or 0
-    session.score = round(score * 100, 2)  # Convert to %
+    # Batch evaluate all answers using AI if not already evaluated
+    if not session.completed:
+        from .utils import evaluate_all_answers
+        try:
+            scores = evaluate_all_answers(answers)
+            
+            # Update each answer with its score
+            for answer in answers:
+                if answer.id in scores:
+                    score = scores[answer.id]
+                    answer.is_correct = score >= 0.5
+                    answer.save()
+        except Exception as e:
+            # If AI evaluation fails, mark all as needing review
+            pass
+    
+    # Calculate final score
+    total_answers = answers.count()
+    correct_answers = answers.filter(is_correct=True).count()
+    
+    if total_answers > 0:
+        score_percentage = round((correct_answers / total_answers) * 100, 2)
+    else:
+        score_percentage = 0
+    
+    session.score = score_percentage
     session.completed = True
     session.save()
+    
     from users.models import ActivityLog
     ActivityLog.objects.create(
         user=request.user, action='test_completed',
         detail=f'{session.job_role} — {session.score}%'
     )
+    
     return render(request, 'competency/test_result.html', {
         'session': session,
-        'answers': answers
+        'answers': answers,
+        'correct_count': correct_answers,
+        'total_count': total_answers
     }) 
     
 @login_required
@@ -166,7 +198,7 @@ def interview_prep_view(request):
 
         try:
             genai.configure(api_key=settings.GEMINI_API_KEY)
-            model = genai.GenerativeModel("gemini-2.5-flash")
+            model = genai.GenerativeModel(settings.GEMINI_MODEL)
             prompt = f"""Generate 5 {category} interview questions for the role of "{job_role}".
 For each question, provide a concise model answer.
 
@@ -220,7 +252,7 @@ def interview_practice_view(request, pk):
             question.user_answer = user_answer
             try:
                 genai.configure(api_key=settings.GEMINI_API_KEY)
-                model = genai.GenerativeModel("gemini-2.5-flash")
+                model = genai.GenerativeModel(settings.GEMINI_MODEL)
                 prompt = f"""You are an expert interview coach. Evaluate the following answer.
 
 Question: {question.question_text}

@@ -29,7 +29,7 @@ Output Format:
 Be realistic, practical, and focused on relevant technologies and goals. Avoid suggesting skills the user already has.
 """
 
-    model = genai.GenerativeModel("gemini-2.5-flash")
+    model = genai.GenerativeModel(settings.GEMINI_MODEL)
     response = model.generate_content(prompt)
 
     return response.text
@@ -42,7 +42,7 @@ import json
 def extract_skills_from_profile(location, skills, experience, projects):
     genai.configure(api_key=settings.GEMINI_API_KEY)
     try:
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel(settings.GEMINI_MODEL)
         prompt = f"""
         Based on the user's professional information, extract a clean and concise list of technical and relevant soft skills only. Avoid repetitions.
 

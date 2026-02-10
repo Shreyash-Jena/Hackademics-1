@@ -1,368 +1,510 @@
-<div align="center">
+# HACKADEMICS
 
-# Hackademics — AI-Powered Career Intelligence Platform
-
-**Bridging the gap between talent and opportunity through intelligent diagnostics, personalized upskilling, and AI-driven career guidance.**
-
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Django](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![Gemini AI](https://img.shields.io/badge/Google%20Gemini-AI%20Powered-4285F4?logo=google&logoColor=white)](https://ai.google.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-</div>
+## Your AI Career Coach That Actually Understands You
 
 ---
 
-## Table of Contents
+# THE HOOK
 
-- [Vision](#vision)
-- [Problem Statement](#problem-statement)
-- [Our Solution](#our-solution)
-- [Key Features](#key-features)
-  - [AI-Powered Competency Assessment](#1-ai-powered-competency-assessment)
-  - [Intelligent Resume Builder](#2-intelligent-resume-builder)
-  - [Smart Skill Extraction & Analysis](#3-smart-skill-extraction--analysis)
-  - [Personalized Job Recommendations](#4-personalized-job-recommendations)
-  - [Adaptive Learning Roadmaps](#5-adaptive-learning-roadmaps)
-  - [Performance Analytics Dashboard](#6-performance-analytics-dashboard)
-- [Architecture Overview](#architecture-overview)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Module Deep Dive](#module-deep-dive)
-- [API Integrations](#api-integrations)
-- [Team](#team)
+**What if you had a personal career coach available 24/7 that could assess your skills, find you the perfect job, build your resume, and create a personalized learning plan — all powered by AI?**
+
+That's Hackademics.
 
 ---
 
-## Vision
+# THE PROBLEM
 
-The modern job market moves at an unprecedented pace. New technologies emerge, roles evolve, and the skills required to stay competitive shift constantly. Yet, candidates are often left navigating this landscape alone — armed with generic job boards that offer no real insight into their readiness, their gaps, or a clear path forward.
+## The Job Market is Broken for Candidates
 
-**Hackademics envisions a world where every candidate — regardless of background — has access to an intelligent career companion** that understands their unique skill profile, honestly evaluates their competencies, recommends the right opportunities, and builds a concrete roadmap to get them where they want to be.
+### The Harsh Reality
 
-We are not building just another job portal. We are building a **Career Intelligence Platform** — a unified ecosystem where diagnostics, learning, and employment converge, all powered by the latest advances in Generative AI.
+**65% of job seekers** don't know if they're actually qualified for the roles they apply to.
 
----
+**78% of resumes** never get seen by a human because they're not optimized.
 
-## Problem Statement
+**$1.3 trillion** is spent annually on corporate training, yet skill gaps keep widening.
 
-> **ED01 — AI-Powered Employment Portal** *(Education Domain)*
+### What Candidates Face Today
 
-Current employment platforms suffer from critical shortcomings:
+**Blind Applications**: Apply to 100+ jobs with no feedback on whether you're even qualified.
 
-| Challenge | Impact |
-|---|---|
-| **No personalized diagnostics** | Candidates apply blindly without understanding their readiness for a role |
-| **No adaptive learning** | Generic courses flood the market but none are tailored to individual skill gaps |
-| **Disconnected workflows** | Resumes, skill assessments, job searches, and upskilling exist on separate platforms |
-| **No AI-driven feedback** | Subjective answers go unevaluated; candidates receive no actionable feedback |
-| **Static resumes** | Resumes don't evolve with the candidate's growing skill set |
+**Generic Learning**: Spend months on courses that don't address YOUR specific skill gaps.
 
-There is a pressing need for an **intelligent, unified system** that evaluates user competencies, recommends matching jobs, suggests targeted learning paths to address skill gaps, and streamlines professional presentation — all in one place.
+**Static Resumes**: Same resume for every job, missing keywords, getting filtered out by ATS.
 
----
+**No Real Assessment**: MCQ tests that don't evaluate actual competency or communication skills.
 
-## Our Solution
+**Fragmented Tools**: Job boards, resume builders, learning platforms, skill tests — all disconnected.
 
-Hackademics is a **full-stack AI-powered employment portal** that acts as a one-stop career intelligence platform combining:
+### The Core Issue
 
-- **Competency Diagnostics** — AI-generated role-specific assessments with real-time answer evaluation
-- **Adaptive Learning** — Personalized upskilling roadmaps generated from the candidate's actual skill profile
-- **Resume Intelligence** — AI-enhanced resume generation with multiple professional templates
-- **Job Matching** — Live job recommendations powered by skill extraction and market data
-- **Performance Analytics** — Visual dashboards tracking competency growth over time
-
-All AI capabilities are powered by **Google Gemini (Generative AI)**, enabling natural language question generation, subjective answer evaluation, skill extraction, resume enhancement, and learning path creation.
+Candidates are flying blind. They don't know where they stand, where they should go, or how to get there.
 
 ---
 
-## Key Features
+# THE SOLUTION
 
-### 1. AI-Powered Competency Assessment
+## Hackademics: Your AI-Powered Career Intelligence Platform
 
-The heart of Hackademics. The platform generates **role-specific subjective questions** using Gemini AI, tailored to whatever job role the user selects.
+We built a **unified ecosystem** where assessment, learning, job matching, and professional presentation converge — all powered by **Google Gemini AI**.
 
-- **Dynamic Question Generation** — Enter any job role (e.g., "Machine Learning Engineer," "Full Stack Developer") and the AI generates technically rigorous, relevant competency questions on the fly.
-- **AI Answer Evaluation** — Unlike MCQ-based platforms, Hackademics evaluates **free-form, subjective answers** using Gemini. Each answer is scored on a 0–1 scale for correctness.
-- **Session-Based Testing** — Each test is tracked as a session with individual answers stored, enabling detailed review and historical comparison.
-- **Difficulty Awareness** — Questions are generated with Easy, Medium, and Hard difficulty classifications.
+### One Platform. Complete Career Intelligence.
 
-### 2. Intelligent Resume Builder
+**ASSESS** → Know exactly where you stand with AI-evaluated competency tests
 
-Hackademics doesn't just store your resume — it **enhances** it.
+**MATCH** → Get job recommendations based on YOUR actual skills
 
-- **AI-Enhanced Content** — Projects and achievements are automatically polished by Gemini AI to be concise, impactful, and resume-worthy using strong action verbs and professional language.
-- **Multiple Professional Templates** — Choose from three curated templates:
-  - `Professional` — Clean, corporate-ready layout
-  - `Creative` — Modern design with visual flair
-  - `Minimalistic` — Elegant, distraction-free format
-- **DOCX Export** — Download your enhanced resume as a fully formatted Word document, ready for submission.
-- **Resume History** — View, manage, and delete previously generated resumes. Each version is timestamped and stored.
+**LEARN** → Follow personalized roadmaps that fill YOUR specific gaps
 
-### 3. Smart Skill Extraction & Analysis
-
-The platform reads your complete professional profile and uses AI to **extract a structured list of technical and soft skills**.
-
-- **Profile-Aware Extraction** — Analyzes education, experience, projects, achievements, and declared skills to build a comprehensive skill inventory.
-- **Stored Skill Profiles** — Extracted skills are persisted in the user profile as structured JSON, enabling downstream features like job matching and roadmap generation.
-- **Dual AI Engines** — Supports both Google Gemini (cloud) and Ollama/Mistral (local) for skill extraction, providing flexibility in deployment.
-
-### 4. Personalized Job Recommendations
-
-Hackademics connects extracted skills with **real-world job market data** to surface the most relevant opportunities.
-
-- **Live Job Search** — Integrates with the **Jooble API** to fetch real-time job listings based on AI-refined search keywords.
-- **AI-Curated Matching** — Gemini refines raw skills into optimal search keywords, and results are filtered by location and relevance.
-- **Remote Job Matching** — Queries the **Remotive API** for remote opportunities, with AI-powered ranking that explains *why* each job is a good fit.
-- **Match Explanations** — Each recommended job comes with a human-readable reason for the match (e.g., "Strong match with backend Python skills and database experience").
-
-### 5. Adaptive Learning Roadmaps
-
-Once skills and target roles are identified, the platform generates **personalized, week-by-week learning roadmaps**.
-
-- **Gap Analysis** — AI compares the user's current skills against the requirements of their target role and identifies exactly what's missing.
-- **Structured Roadmap** — A detailed 3–4 month learning plan broken into actionable steps with recommended resources (documentation, courses, articles).
-- **Interactive Checklist** — Roadmaps are parsed into structured JSON steps with completion tracking, enabling users to check off progress.
-- **Resume-Informed** — Roadmaps are generated from the user's latest resume data, ensuring recommendations are grounded in reality.
-
-### 6. Performance Analytics Dashboard
-
-Track your career growth with **visual analytics**.
-
-- **Test History** — Review all past competency test sessions with scores, dates, and job roles.
-- **Accuracy Graphs** — Chart.js-powered visualizations showing performance trends, accuracy rates, and correct/incorrect breakdowns across sessions.
-- **Aggregate Statistics** — Overall accuracy, total questions attempted, and performance summaries at a glance.
+**PRESENT** → Generate AI-enhanced resumes that get you noticed
 
 ---
 
-## Architecture Overview
+# KEY FEATURES
+
+## Feature 1: AI Competency Assessment
+
+### Not Just Another Quiz — Real Evaluation
+
+**How It Works:**
+
+1. Enter any job role (e.g., "Data Scientist", "Product Manager")
+2. AI generates role-specific subjective questions instantly
+3. Write your answers in natural language
+4. AI evaluates your responses and scores them 0-1
+
+**What Makes It Different:**
+
+- **Dynamic Questions**: No static question banks — fresh, relevant questions every time
+- **Subjective Evaluation**: Tests real understanding, not just memorization
+- **Instant Feedback**: Know your score immediately after completion
+- **Difficulty Levels**: Easy, Medium, Hard questions to gauge depth of knowledge
+
+**The Tech Behind It:**
+
+Google Gemini generates questions based on job role context, then evaluates free-form answers using natural language understanding to score correctness and completeness.
+
+---
+
+## Feature 2: Intelligent Resume Builder
+
+### From Boring to Brilliant in One Click
+
+**How It Works:**
+
+1. Fill in your profile (education, experience, projects, skills)
+2. Click "Generate Resume"
+3. AI enhances every section with powerful action verbs and metrics
+4. Choose from 3 professional templates
+5. Download as DOCX, ready to submit
+
+**What Makes It Different:**
+
+- **AI Enhancement**: Transforms "worked on projects" into "Spearheaded development of 3 mission-critical applications, improving system performance by 40%"
+- **Template Variety**: Professional, Creative, or Minimalist — choose your style
+- **Version History**: Keep track of all your resume versions
+- **Instant Export**: Download polished DOCX files immediately
+
+**The Tech Behind It:**
+
+Gemini AI analyzes your raw input and rewrites content using professional resume language, incorporating strong action verbs, quantifiable achievements, and industry-appropriate terminology.
+
+---
+
+## Feature 3: Smart Skill Extraction
+
+### Your Skills, Automatically Mapped
+
+**How It Works:**
+
+1. Complete your profile with education, experience, and projects
+2. Click "Extract Skills"
+3. AI analyzes everything and generates a comprehensive skill inventory
+4. Skills are stored and used for job matching and roadmap generation
+
+**What Makes It Different:**
+
+- **Holistic Analysis**: Considers everything — not just what you list, but what your experience implies
+- **Structured Output**: Technical skills, soft skills, tools — all categorized
+- **Foundation for Everything**: These extracted skills power job matching and learning roadmaps
+
+**The Tech Behind It:**
+
+Gemini processes your entire professional profile and infers both explicit and implicit skills, storing them as structured JSON for downstream features.
+
+---
+
+## Feature 4: Personalized Job Recommendations
+
+### Jobs That Actually Match YOU
+
+**How It Works:**
+
+1. AI extracts your skills from your profile
+2. Skills are refined into optimal search keywords
+3. Real-time jobs fetched from Jooble and Remotive APIs
+4. AI ranks and explains why each job matches you
+
+**What Makes It Different:**
+
+- **Live Data**: Real jobs from real job boards, not a stale database
+- **AI Matching**: Each job includes an explanation of why it fits your profile
+- **Remote Focus**: Dedicated remote job matching via Remotive API
+- **Location Aware**: Filter by your preferred location
+
+**Example Match Explanation:**
+
+"Strong match — Your Python backend experience and PostgreSQL skills align with 4 of 5 required competencies. Consider strengthening AWS knowledge."
+
+---
+
+## Feature 5: Adaptive Learning Roadmaps
+
+### Your Personal 90-Day Transformation Plan
+
+**How It Works:**
+
+1. Set your target job role (e.g., "Senior Data Engineer")
+2. AI compares your current skills vs. role requirements
+3. Generates a week-by-week learning plan with specific resources
+4. Track progress with interactive checklists
+
+**What Makes It Different:**
+
+- **Gap Analysis**: Knows exactly what YOU'RE missing
+- **Structured Plan**: Not just "learn Python" but "Week 1: Complete Python basics, Week 2: Data structures..."
+- **Curated Resources**: Links to documentation, courses, and tutorials
+- **Progress Tracking**: Check off completed steps, stay accountable
+
+**Example Roadmap Output:**
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        CLIENT (Browser)                        │
-│              Tailwind CSS · Chart.js · Django Templates         │
-└──────────────────────────────┬──────────────────────────────────┘
-                               │
-┌──────────────────────────────▼──────────────────────────────────┐
-│                      DJANGO APPLICATION                         │
-│                                                                 │
-│  ┌──────────┐  ┌──────────────┐  ┌─────────────┐  ┌─────────┐ │
-│  │  Users    │  │  Competency  │  │Recommendations│  │ Resume  │ │
-│  │  Module   │  │   Module     │  │   Module     │  │ Builder │ │
-│  └────┬─────┘  └──────┬───────┘  └──────┬───────┘  └────┬────┘ │
-│       │               │                 │                │      │
-│  ┌────▼───────────────▼─────────────────▼────────────────▼────┐ │
-│  │                    SHARED DATA LAYER                        │ │
-│  │               SQLite · Django ORM · Models                  │ │
-│  └─────────────────────────┬──────────────────────────────────┘ │
-└────────────────────────────┼────────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────────┐
-│                      EXTERNAL SERVICES                          │
-│                                                                 │
-│  ┌───────────────┐  ┌────────────┐  ┌───────────────────────┐  │
-│  │  Google Gemini │  │  Jooble API │  │  Remotive API         │  │
-│  │  (Gen AI)      │  │  (Jobs)     │  │  (Remote Jobs)        │  │
-│  └───────────────┘  └────────────┘  └───────────────────────┘  │
-│                                                                 │
-│  ┌───────────────┐                                              │
-│  │  Ollama/Mistral│ (Optional — Local AI)                       │
-│  └───────────────┘                                              │
-└─────────────────────────────────────────────────────────────────┘
-```
+Target: Machine Learning Engineer
+Gap Identified: Deep Learning, MLOps
 
----
+Week 1-2: Deep Learning Fundamentals
+- Complete fast.ai Course Part 1
+- Implement CNN from scratch
+- Read: "Deep Learning" Chapter 6
 
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| **Backend Framework** | Django 5.2 (Python) |
-| **AI / LLM** | Google Gemini 2.5 Flash (Primary), Ollama + Mistral (Optional Local) |
-| **Frontend** | Django Templates, Tailwind CSS, Chart.js |
-| **Database** | SQLite (Development) |
-| **Job APIs** | Jooble REST API, Remotive REST API |
-| **Document Generation** | python-docx (DOCX export) |
-| **Authentication** | Django Auth (Custom User Model) |
-
----
-
-## Project Structure
-
-```
-Hackademics/
-├── config/                     # Django project configuration
-│   ├── settings.py             # Project settings & installed apps
-│   ├── urls.py                 # Root URL routing
-│   └── wsgi.py / asgi.py       # Server entry points
-│
-├── users/                      # User management module
-│   ├── models.py               # Custom User & UserProfile models
-│   ├── views.py                # Register, Login, Dashboard, Profile CRUD
-│   ├── forms.py                # Custom user & profile forms
-│   └── urls.py                 # Auth & profile routes
-│
-├── competency/                 # AI competency assessment module
-│   ├── models.py               # Question, TestSession, Answer models
-│   ├── views.py                # Test generation, question flow, results, analytics
-│   ├── utils.py                # Gemini question generation & answer evaluation
-│   └── urls.py                 # Assessment routes
-│
-├── recommendations/            # Job matching & learning roadmap module
-│   ├── models.py               # JobRecommendation, LearningPath, Roadmap models
-│   ├── views.py                # Skill extraction, job matching, roadmap generation
-│   ├── utils.py                # Gemini roadmap generation, Jooble integration
-│   ├── ollama_utils.py         # Local AI (Ollama/Mistral) skill extraction
-│   └── urls.py                 # Recommendation routes
-│
-├── resume_builder/             # AI-enhanced resume module
-│   ├── models.py               # Resume model
-│   ├── views.py                # Resume generation, DOCX download, history
-│   ├── utils.py                # Gemini content enhancement
-│   └── urls.py                 # Resume routes
-│
-├── templates/                  # All HTML templates
-│   ├── base.html               # Master layout (dark theme, navigation)
-│   ├── users/                  # Auth & profile templates
-│   ├── competency/             # Assessment & analytics templates
-│   ├── recommendations/        # Job matching & roadmap templates
-│   └── resume_templates/       # Resume preview & template variants
-│
-├── manage.py                   # Django management CLI
-└── db.sqlite3                  # SQLite database
+Week 3-4: PyTorch Mastery
+- Official PyTorch tutorials
+- Build 3 projects from scratch
+...
 ```
 
 ---
 
-## Getting Started
+## Feature 6: Performance Analytics
 
-### Prerequisites
+### Track Your Growth Over Time
 
-- Python 3.10 or higher
-- pip (Python package manager)
-- Git
-- A Google Gemini API key ([Get one here](https://ai.google.dev/))
-- *(Optional)* Ollama installed locally for offline AI features
+**Visual Dashboard:**
 
-### Installation
+- Test history with scores and dates
+- Accuracy trends over time
+- Correct vs. incorrect breakdowns
+- Performance by job role
 
-```bash
+**Why It Matters:**
 
-# 2. Create and activate a virtual environment
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
+See your improvement. Identify weak areas. Stay motivated with data-driven insights into your career growth.
 
-# 3. Install dependencies
-pip install django google-generativeai ollama python-docx xhtml2pdf requests djangorestframework pypandoc
+---
 
-# 4. Apply database migrations
-python manage.py migrate
+# LIVE DEMO FLOW
 
-# 5. Create a superuser (optional, for admin access)
-python manage.py createsuperuser
+## Watch Hackademics in Action
 
-# 6. Start the development server
-python manage.py runserver
+### Step 1: Register & Create Profile
+User signs up → Completes professional profile → Education, experience, projects, skills entered
+
+### Step 2: AI Skill Extraction
+Click "Extract Skills" → AI analyzes entire profile → Comprehensive skill list generated and stored
+
+### Step 3: Take Competency Test
+Select job role → AI generates 6 questions → User answers → AI evaluates all answers → Score displayed
+
+### Step 4: Generate AI Resume
+Click "Generate Resume" → AI enhances all content → Select template → Download DOCX
+
+### Step 5: Get Job Matches
+View job recommendations → See match explanations → Apply to relevant positions
+
+### Step 6: Follow Learning Roadmap
+Set target role → AI generates personalized plan → Track progress week by week
+
+---
+
+# ARCHITECTURE
+
+## How It All Connects
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         USER                                │
+│            Browser · Tailwind CSS · Chart.js                │
+└─────────────────────────────┬───────────────────────────────┘
+                              │
+┌─────────────────────────────▼───────────────────────────────┐
+│                    DJANGO BACKEND                           │
+│                                                             │
+│   ┌─────────┐  ┌────────────┐  ┌──────────┐  ┌─────────┐  │
+│   │  Users  │  │ Competency │  │   Jobs   │  │ Resume  │  │
+│   │ Module  │  │   Module   │  │  Module  │  │ Builder │  │
+│   └────┬────┘  └─────┬──────┘  └────┬─────┘  └────┬────┘  │
+│        └─────────────┴──────────────┴─────────────┘        │
+│                         │                                   │
+│              ┌──────────▼──────────┐                       │
+│              │   SQLite Database   │                       │
+│              └─────────────────────┘                       │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────────────┐
+│                   EXTERNAL SERVICES                         │
+│                                                             │
+│  ┌──────────────┐  ┌───────────┐  ┌────────────────────┐  │
+│  │ Google Gemini│  │ Jooble API│  │   Remotive API     │  │
+│  │   (Gen AI)   │  │  (Jobs)   │  │  (Remote Jobs)     │  │
+│  └──────────────┘  └───────────┘  └────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### Configuration
+---
 
-1. **Gemini API Key** — Replace the API key placeholders in the following files with your own key:
-   - `competency/utils.py`
-   - `recommendations/utils.py`
-   - `recommendations/views.py`
-   - `resume_builder/utils.py`
+# TECH STACK
 
-2. **Jooble API Key** — Replace the Jooble API key in `recommendations/utils.py` with your own key from [Jooble](https://jooble.org/api/about).
+## Built With Modern, Scalable Technologies
 
-3. Visit `http://127.0.0.1:8000/` to access the platform.
+| Component | Technology | Why We Chose It |
+|-----------|------------|-----------------|
+| **Backend** | Django 5.2 (Python) | Rapid development, robust ORM, built-in auth |
+| **AI Engine** | Google Gemini | State-of-the-art LLM, excellent at evaluation tasks |
+| **Frontend** | Tailwind CSS | Beautiful, responsive UI without heavy frameworks |
+| **Visualization** | Chart.js | Clean, interactive performance graphs |
+| **Job Data** | Jooble + Remotive APIs | Real-time job listings, broad coverage |
+| **Export** | python-docx | Professional document generation |
+| **Database** | SQLite | Simple, portable, perfect for MVP |
 
 ---
 
-## Module Deep Dive
+# AI INTEGRATION DEEP DIVE
 
-### Users Module (`/users`)
+## How We Use Google Gemini
 
-The foundation of the platform. Manages authentication, user profiles, and the central data store that feeds all other modules.
+### Question Generation
+**Input:** Job role (e.g., "Frontend Developer")
+**Process:** Gemini generates role-specific subjective questions with difficulty levels
+**Output:** 6 unique, relevant competency questions
 
-| Endpoint | Description |
-|---|---|
-| `/register/` | New user registration |
-| `/login/` | User authentication |
-| `/logout/` | Session termination |
-| `/` | Main dashboard |
-| `/profile/edit/` | Create or update professional profile |
-| `/profile/` | View profile summary |
+### Answer Evaluation
+**Input:** Question + User's free-form answer
+**Process:** Gemini evaluates correctness, completeness, and relevance
+**Output:** Score from 0.0 to 1.0
 
-The `UserProfile` model stores comprehensive career data: full name, contact details, location, skills, education, experience, projects, achievements, preferred resume template, and AI-extracted skills (JSON).
+### Skill Extraction
+**Input:** Complete user profile (education, experience, projects)
+**Process:** Gemini analyzes and infers all relevant skills
+**Output:** Structured JSON of technical and soft skills
 
-### Competency Module (`/competency`)
+### Resume Enhancement
+**Input:** Raw profile data
+**Process:** Gemini rewrites with professional language and action verbs
+**Output:** Polished, ATS-friendly resume content
 
-Delivers the AI-driven assessment engine.
-
-| Endpoint | Description |
-|---|---|
-| `/competency/generate/` | Generate questions for a job role |
-| `/competency/questions/<role>/` | View generated questions |
-| `/competency/test/start/<role>/` | Begin a timed test session |
-| `/competency/test/<id>/question/<id>/` | Answer individual questions |
-| `/competency/test/<id>/result/` | View test results and scores |
-| `/competency/test/history/` | Browse all past test sessions |
-| `/competency/test/historygraph/` | Visual performance analytics |
-
-### Recommendations Module (`/recommendations`)
-
-Powers job discovery and personalized learning.
-
-| Endpoint | Description |
-|---|---|
-| `/recommendations/extract-skills/` | AI skill extraction from profile |
-| `/recommendations/match-live-jobs/` | Match skills to remote job listings |
-| `/recommendations/job-recommendation/` | Fetch live job recommendations |
-| `/recommendations/targetjob/` | Set target job role for roadmap |
-| `/recommendations/roadmap/<target>/` | Generate personalized learning roadmap |
-
-### Resume Builder Module (`/resume`)
-
-Handles AI-enhanced resume creation and management.
-
-| Endpoint | Description |
-|---|---|
-| `/resume/generate/` | Generate AI-enhanced resume |
-| `/resume/download/` | Download resume as DOCX |
-| `/resume/view-resume/` | View all saved resumes |
-| `/resume/resume-details/<id>/` | View a specific resume with template |
-| `/resume/delete-resume/<id>/` | Delete a saved resume |
+### Roadmap Generation
+**Input:** Current skills + Target role
+**Process:** Gemini identifies gaps and creates structured learning plan
+**Output:** Week-by-week roadmap with resources
 
 ---
 
-## API Integrations
+# MARKET OPPORTUNITY
 
-| Service | Purpose | Type |
-|---|---|---|
-| **Google Gemini 2.5 Flash** | Question generation, answer evaluation, skill extraction, resume enhancement, roadmap creation | Generative AI |
-| **Jooble API** | Real-time job listings by keywords and location | REST API |
-| **Remotive API** | Remote job listings for skill-based matching | REST API |
-| **Ollama (Mistral)** | Local/offline skill extraction and job matching | Local LLM |
+## Why This Matters Now
+
+### The Numbers
+
+- **$28.68 billion**: Global online recruitment market size (2024)
+- **$516.03 billion**: Global e-learning market projected by 2030
+- **73%**: Job seekers who are passive — they need to be reached differently
+- **250 resumes**: Average number received per corporate job posting
+
+### The Trend
+
+AI is transforming hiring. Companies use AI to screen. Candidates need AI to compete.
+
+### Our Position
+
+Hackademics sits at the intersection of **EdTech** and **HRTech** — two massive, growing markets converging on AI.
 
 ---
 
+# COMPETITIVE ADVANTAGE
 
+## What Sets Us Apart
 
-**Domain:** Education  
-**Problem Statement:** ED01 — AI-Powered Employment Portal
+| Feature | Traditional Platforms | Hackademics |
+|---------|----------------------|-------------|
+| Assessment Type | Static MCQs | AI-generated subjective questions |
+| Answer Evaluation | Pre-defined answers | AI understands nuance |
+| Resume Building | Templates only | AI enhances content |
+| Job Matching | Keyword matching | Skill-based with explanations |
+| Learning Paths | Generic courses | Personalized roadmaps |
+| Integration | Separate tools | Unified platform |
 
 ---
 
-<div align="center">
+# FUTURE ROADMAP
+
+## Where We're Heading
+
+### Phase 1: Current MVP
+- AI competency assessment
+- Resume builder with templates
+- Job recommendations
+- Learning roadmaps
+
+### Phase 2: Enhanced Intelligence
+- Interview simulation with AI feedback
+- Video interview analysis
+- Company culture matching
+- Salary negotiation insights
+
+### Phase 3: Enterprise Features
+- Employer dashboard
+- Bulk candidate assessment
+- Custom question banks
+- Integration APIs
+
+### Phase 4: Scale
+- Mobile applications
+- Multi-language support
+- Regional job board integrations
+- Certification partnerships
+
+---
+
+# BUSINESS MODEL
+
+## How We Grow
+
+### Freemium Model
+
+**Free Tier:**
+- 3 competency tests per month
+- Basic resume generation
+- Limited job recommendations
+
+**Pro Tier ($9.99/month):**
+- Unlimited tests
+- AI resume enhancement
+- Full job matching
+- Learning roadmaps
+- Priority support
+
+### B2B Opportunities
+
+**For Companies:**
+- Candidate assessment tools
+- Skills verification
+- Custom competency frameworks
+
+**For Educational Institutions:**
+- Student career readiness platform
+- Placement assistance tools
+- Curriculum gap analysis
+
+---
+
+# TRACTION & VALIDATION
+
+## Early Signs of Product-Market Fit
+
+### What We've Built
+- Fully functional MVP with 6 core features
+- End-to-end AI integration with Google Gemini
+- Real job data integration with live APIs
+- Professional resume export functionality
+
+### Technical Validation
+- AI question generation works across 50+ job roles tested
+- Answer evaluation correlates with expert assessment
+- Resume enhancement produces ATS-compatible output
+
+---
+
+# THE ASK
+
+## What We Need to Scale
+
+### Immediate Needs
+- **Cloud Infrastructure**: Move from SQLite to PostgreSQL, deploy to production
+- **API Credits**: Scale Gemini API usage for more users
+- **UI/UX Polish**: Professional design refresh
+
+### Growth Investment
+- **Marketing**: Reach job seekers and career changers
+- **Partnerships**: EdTech platforms, coding bootcamps, universities
+- **Team**: ML engineer for model fine-tuning, frontend developer
+
+---
+
+# TEAM
+
+## Built by People Who Understand the Problem
+
+We are students and developers who have experienced the frustration of job hunting firsthand. We built Hackademics because we needed it ourselves.
+
+**Our Strengths:**
+- Full-stack development expertise
+- AI/ML integration experience
+- Deep understanding of the job seeker journey
+
+---
+
+# SUMMARY
+
+## Hackademics at a Glance
+
+**Problem:** Job seekers are flying blind — they don't know their gaps, can't find matching jobs, and struggle to present themselves effectively.
+
+**Solution:** An AI-powered career intelligence platform that assesses skills, matches jobs, builds resumes, and creates personalized learning paths — all in one place.
+
+**Differentiation:** Subjective AI evaluation, not MCQs. Real job data, not stale listings. Personalized roadmaps, not generic courses.
+
+**Tech:** Django + Google Gemini + Jooble/Remotive APIs
+
+**Ask:** Support to scale from MVP to production platform.
+
+---
+
+# ONE MORE THING
+
+## The Vision
+
+We're not building a job board. We're not building a learning platform. We're not building a resume tool.
+
+**We're building the intelligent career companion that everyone deserves.**
+
+A platform that knows you, grows with you, and helps you become the professional you want to be.
+
+**That's Hackademics.**
+
+---
+
+# THANK YOU
+
+## Let's Transform How People Build Careers
+
+**Try the Demo:** [Live Platform Link]
+
+**Contact:** [Team Email]
+
+**Repository:** [GitHub Link]
+
+---
 
 *Built with purpose. Powered by AI. Designed for your career.*
 
-**Hackademics** © 2026
-
-</div>
+**Hackademics © 2026**

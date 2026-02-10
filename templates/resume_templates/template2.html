@@ -2,70 +2,95 @@
 
 {% block content %}
 <div class="animate-slide-up">
-  <!-- Resume Document -->
-  <div class="max-w-4xl mx-auto bg-white shadow-2xl shadow-black/40 border border-surface-600/30 rounded-xl overflow-hidden p-10 my-4 font-mono">
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row justify-between items-start mb-10 pb-6 border-b-2 border-slate-200">
-      <div>
-        <h1 class="text-3xl font-bold text-slate-900 tracking-tight">{{ full_name }}</h1>
-        <p class="text-sm text-slate-500 mt-1.5">{{ location }} &bull; {{ phone_number }}</p>
-      </div>
-    </div>
-
-    <!-- Grid Layout -->
-    <div class="grid md:grid-cols-2 gap-10">
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Skills</h2>
-        <div class="text-sm text-slate-700 leading-relaxed">
-          {{ skills }}
-        </div>
-      </div>
-
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Education</h2>
-        <p class="text-sm text-slate-700 whitespace-pre-line leading-relaxed">{{ education }}</p>
-      </div>
-
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Experience</h2>
-        <p class="text-sm text-slate-700 whitespace-pre-line leading-relaxed">{{ experience }}</p>
-      </div>
-
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Projects</h2>
-        <p class="text-sm text-slate-700 whitespace-pre-line leading-relaxed">{{ projects|default:"Not provided" }}</p>
-      </div>
-
-      <div class="md:col-span-2">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Achievements</h2>
-        <p class="text-sm text-slate-700 whitespace-pre-line leading-relaxed">{{ achievements|default:"Not provided" }}</p>
-      </div>
-    </div>
-
-    <div class="mt-10 pt-6 border-t border-slate-200">
-      <a href="{% url 'edit_profile' %}" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-slate-800 border border-slate-300 px-4 py-2 rounded-lg transition-colors">
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+  <!-- Action Bar -->
+  <div class="flex items-center justify-between mb-4 max-w-4xl mx-auto">
+    <a href="{% url 'view' %}" class="btn-ghost text-sm">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+      </svg>
+      All Resumes
+    </a>
+    <div class="flex items-center gap-2">
+      {% if resume_id %}
+      <a href="{% url 'edit_resume' resume_id %}" class="btn-secondary text-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Z" />
         </svg>
-        Edit Profile
+        Edit
       </a>
+      <a href="{% url 'download_resume' resume_id %}" class="btn-primary text-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        Download DOCX
+      </a>
+      {% endif %}
     </div>
   </div>
 
-  <!-- Download Actions -->
-  <div class="flex items-center justify-center gap-3 mt-6 mb-4">
-    <a href="{% url 'download_resume' %}?format=docx" class="btn-secondary text-sm">
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-      </svg>
-      Download DOCX
-    </a>
-    <a href="{% url 'download_resume' %}?format=pdf" class="btn-primary text-sm">
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-      </svg>
-      Download PDF
-    </a>
+  <!-- Resume Document — Modern/Creative Template -->
+  <div id="resume-content" class="max-w-4xl mx-auto bg-white shadow-2xl shadow-black/40 rounded-xl overflow-hidden my-4"
+       style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #1a1a1a;">
+    
+    <!-- Header with accent -->
+    <div class="bg-gradient-to-r from-indigo-600 to-blue-500 px-10 py-8 text-white">
+      <h1 class="text-3xl font-bold tracking-tight">{{ full_name }}</h1>
+      <div class="flex flex-wrap items-center gap-4 mt-3 text-indigo-100 text-sm">
+        {% if email %}<span>{{ email }}</span>{% endif %}
+        {% if phone_number %}<span>•</span><span>{{ phone_number }}</span>{% endif %}
+        {% if location %}<span>•</span><span>{{ location }}</span>{% endif %}
+      </div>
+      {% if summary %}
+      <p class="mt-4 text-sm text-indigo-50 leading-relaxed max-w-3xl">{{ summary }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Body -->
+    <div class="p-10">
+      <!-- Two-column grid -->
+      <div class="grid grid-cols-3 gap-10">
+        <!-- Left column: Main content -->
+        <div class="col-span-2 space-y-7">
+          {% if experience %}
+          <section>
+            <h2 class="text-xs font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 pb-2 border-b-2 border-indigo-100">Professional Experience</h2>
+            <div class="text-[13px] text-slate-700 whitespace-pre-line leading-relaxed">{{ experience }}</div>
+          </section>
+          {% endif %}
+
+          {% if projects %}
+          <section>
+            <h2 class="text-xs font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 pb-2 border-b-2 border-indigo-100">Projects</h2>
+            <div class="text-[13px] text-slate-700 whitespace-pre-line leading-relaxed">{{ projects }}</div>
+          </section>
+          {% endif %}
+
+          {% if education %}
+          <section>
+            <h2 class="text-xs font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 pb-2 border-b-2 border-indigo-100">Education</h2>
+            <div class="text-[13px] text-slate-700 whitespace-pre-line leading-relaxed">{{ education }}</div>
+          </section>
+          {% endif %}
+        </div>
+
+        <!-- Right column: Skills & Achievements -->
+        <div class="space-y-7">
+          {% if skills %}
+          <section>
+            <h2 class="text-xs font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 pb-2 border-b-2 border-indigo-100">Skills</h2>
+            <div class="text-[13px] text-slate-600 whitespace-pre-line leading-relaxed">{{ skills }}</div>
+          </section>
+          {% endif %}
+
+          {% if achievements %}
+          <section>
+            <h2 class="text-xs font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 pb-2 border-b-2 border-indigo-100">Achievements</h2>
+            <div class="text-[13px] text-slate-600 whitespace-pre-line leading-relaxed">{{ achievements }}</div>
+          </section>
+          {% endif %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
