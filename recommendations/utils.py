@@ -71,8 +71,8 @@ def fetch_jobs(keywords, location):
     headers = {"Content-type": "application/json"}
 
     body = json.dumps({
-        "keywords": ', '.join(keywords),
-        "location": location or 'India'
+        "keywords": 'Technical',
+        
     })
 
     connection.request('POST', f'/api/{key}', body, headers)

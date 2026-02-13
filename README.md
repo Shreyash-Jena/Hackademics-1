@@ -508,3 +508,5 @@ A platform that knows you, grows with you, and helps you become the professional
 *Built with purpose. Powered by AI. Designed for your career.*
 
 **Hackademics © 2026**
+
+SIDDHARTH

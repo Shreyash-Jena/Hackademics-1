@@ -54,7 +54,7 @@ def dashboard_view(request):
         profile = request.user.userprofile
         profile_completeness = profile.completeness
     except UserProfile.DoesNotExist:
-        pass
+        return render(request, 'errors/404.html', context)
 
     # Stats
     resume_count = resume.objects.filter(user=request.user).count()
