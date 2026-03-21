@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load math_filters %}
 {% block content %}
 <div class="max-w-3xl mx-auto animate-slide-up">
   <div class="mb-6">
@@ -33,19 +34,19 @@
                   fill="none" stroke="rgb(51 65 85)" stroke-width="3" />
             <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
-                  stroke="{% if question.score >= 70 %}rgb(16 185 129){% elif question.score >= 40 %}rgb(245 158 11){% else %}rgb(239 68 68){% endif %}"
+                  stroke="{% if question.score|mul:100 >= 70 %}rgb(16 185 129){% elif question.score|mul:100 >= 40 %}rgb(245 158 11){% else %}rgb(239 68 68){% endif %}"
                   stroke-width="3"
-                  stroke-dasharray="{{ question.score }}, 100"
+                  stroke-dasharray="{{ question.score|mul:100|floatformat:0 }}, 100"
                   stroke-linecap="round" />
           </svg>
           <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-lg font-bold text-surface-100">{{ question.score|floatformat:0 }}%</span>
+            <span class="text-lg font-bold text-surface-100">{{ question.score|mul:100|floatformat:0 }}%</span>
           </div>
         </div>
         <div>
           <p class="text-surface-200 font-medium">
-            {% if question.score >= 70 %}Excellent Answer!
-            {% elif question.score >= 40 %}Good Effort
+            {% if question.score|mul:100 >= 70 %}Excellent Answer!
+            {% elif question.score|mul:100 >= 40 %}Good Effort
             {% else %}Needs Improvement{% endif %}
           </p>
           <p class="text-sm text-surface-500">Based on AI evaluation</p>
