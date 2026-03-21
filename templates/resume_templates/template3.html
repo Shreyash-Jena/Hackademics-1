@@ -43,7 +43,7 @@
 
     {% if summary %}
     <section style="margin-bottom:20px;">
-      <p style="font-size:12px; color:#374151; line-height:1.7; border-left:2px solid #6B7280; padding-left:12px; font-style:italic;">{{ summary }}</p>
+      <p style="font-size:13px; color:#374151; line-height:1.7; border-left:2px solid #6B7280; padding-left:12px; font-style:italic;">{{ summary }}</p>
     </section>
     {% endif %}
 
@@ -52,7 +52,7 @@
       <h2 style="font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#6B7280; border-bottom:1px solid #E5E7EB; padding-bottom:4px; margin-bottom:10px;">Skills</h2>
       {% if skills.0.category %}
         {% for cat in skills %}
-        <div style="margin-bottom:6px; font-size:12px; color:#374151;">
+        <div style="margin-bottom:6px; font-size:13px; color:#374151;">
           <strong>{{ cat.category }}:</strong> {{ cat.items|join:", " }}
         </div>
         {% endfor %}
@@ -69,9 +69,9 @@
         {% for edu in education %}
         <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
           <div>
-            <span style="font-size:12.5px; font-weight:700; color:#111827;">{{ edu.institution }}</span>
+            <span style="font-size:13.5px; font-weight:700; color:#111827;">{{ edu.institution }}</span>
             {% if edu.degree or edu.field %}
-            <span style="font-size:12px; color:#6B7280;"> · {{ edu.degree }}{% if edu.degree and edu.field %} in {% endif %}{{ edu.field }}</span>
+            <span style="font-size:13px; color:#6B7280;"> · {{ edu.degree }}{% if edu.degree and edu.field %} in {% endif %}{{ edu.field }}</span>
             {% endif %}
           </div>
           {% if edu.dates %}<span style="font-size:11px; color:#9CA3AF; font-style:italic;">{{ edu.dates }}</span>{% endif %}
@@ -91,9 +91,9 @@
         <div style="margin-bottom:14px;">
           <div style="display:flex; justify-content:space-between; align-items:baseline;">
             <div>
-              <span style="font-size:12.5px; font-weight:700; color:#111827;">{{ exp.title }}</span>
+              <span style="font-size:14px; font-weight:700; color:#111827;">{{ exp.title }}</span>
               {% if exp.company %}
-              <span style="font-size:12px; color:#6B7280;"> · {{ exp.company }}</span>
+              <span style="font-size:13px; color:#6B7280;"> · {{ exp.company }}</span>
               {% endif %}
             </div>
             {% if exp.dates %}
@@ -103,7 +103,7 @@
           {% if exp.bullets %}
           <ul style="margin: 5px 0 0 20px; padding:0; list-style:disc;">
             {% for bullet in exp.bullets %}
-            <li style="font-size:12px; color:#374151; margin-bottom:3px; line-height:1.6;">{{ bullet }}</li>
+            <li style="font-size:13.5px; color:#374151; margin-bottom:3px; line-height:1.6;">{{ bullet }}</li>
             {% endfor %}
           </ul>
           {% endif %}
@@ -122,13 +122,13 @@
         {% for proj in projects %}
         <div style="margin-bottom:12px;">
           <div>
-            <span style="font-size:12.5px; font-weight:700; color:#111827;">{{ proj.name }}</span>
-            {% if proj.tech %}<span style="font-size:11px; color:#6B7280; font-style:italic;"> · {{ proj.tech }}</span>{% endif %}
+             <span style="font-size:14px; font-weight:700; color:#111827;">{{ proj.name }}</span>
+            {% if proj.tech %}<span style="font-size:11.5px; color:#6B7280; font-style:italic;"> · {{ proj.tech }}</span>{% endif %}
           </div>
           {% if proj.bullets %}
           <ul style="margin:5px 0 0 20px; padding:0; list-style:disc;">
             {% for bullet in proj.bullets %}
-            <li style="font-size:12px; color:#374151; margin-bottom:3px; line-height:1.6;">{{ bullet }}</li>
+            <li style="font-size:13.5px; color:#374151; margin-bottom:3px; line-height:1.6;">{{ bullet }}</li>
             {% endfor %}
           </ul>
           {% endif %}
@@ -146,7 +146,7 @@
       {% if achievements.0 %}
       <ul style="margin:0; padding-left:20px; list-style:disc;">
         {% for ach in achievements %}
-        <li style="font-size:12px; color:#374151; margin-bottom:4px; line-height:1.6;">{{ ach }}</li>
+        <li style="font-size:13.5px; color:#374151; margin-bottom:4px; line-height:1.6;">{{ ach }}</li>
         {% endfor %}
       </ul>
       {% else %}

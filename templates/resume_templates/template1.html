@@ -39,7 +39,7 @@
         <div>
           <h1 style="font-size:22px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; line-height:1.2;">{{ full_name }}</h1>
           {% if summary %}
-          <p style="font-size:11px; color:#CBD5E1; margin-top:10px; line-height:1.6; font-style:italic;">{{ summary }}</p>
+          <p style="font-size:12.5px; color:#CBD5E1; margin-top:10px; line-height:1.6; font-style:italic;">{{ summary }}</p>
           {% endif %}
         </div>
 
@@ -61,7 +61,7 @@
             {% for cat in skills %}
             <div style="margin-bottom:8px;">
               <div style="font-size:10px; font-weight:700; color:#818CF8; margin-bottom:3px;">{{ cat.category }}</div>
-              <div style="font-size:10.5px; color:#CBD5E1; line-height:1.5;">{{ cat.items|join:", " }}</div>
+              <div style="font-size:12px; color:#CBD5E1; line-height:1.5;">{{ cat.items|join:", " }}</div>
             </div>
             {% endfor %}
           {% else %}
@@ -77,7 +77,7 @@
           {% if achievements.0 %}
             <ul style="padding-left:14px; margin:0;">
               {% for ach in achievements %}
-              <li style="font-size:10.5px; color:#E2E8F0; margin-bottom:5px; line-height:1.5;">{{ ach }}</li>
+              <li style="font-size:12px; color:#E2E8F0; margin-bottom:5px; line-height:1.5;">{{ ach }}</li>
               {% endfor %}
             </ul>
           {% else %}
@@ -98,11 +98,11 @@
             {% for edu in education %}
             <div style="margin-bottom:10px;">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
-                <span style="font-size:12px; font-weight:700; color:#1E293B;">{{ edu.institution }}</span>
+                <span style="font-size:13.5px; font-weight:700; color:#1E293B;">{{ edu.institution }}</span>
                 {% if edu.dates %}<span style="font-size:10px; color:#64748B; font-style:italic;">{{ edu.dates }}</span>{% endif %}
               </div>
               {% if edu.degree or edu.field %}
-              <div style="font-size:11px; color:#475569; margin-top:2px;">{{ edu.degree }}{% if edu.degree and edu.field %} · {% endif %}{{ edu.field }}</div>
+              <div style="font-size:12px; color:#475569; margin-top:2px;">{{ edu.degree }}{% if edu.degree and edu.field %} · {% endif %}{{ edu.field }}</div>
               {% endif %}
             </div>
             {% endfor %}
@@ -121,15 +121,15 @@
             <div style="margin-bottom:14px;">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
                 <div>
-                  <span style="font-size:12.5px; font-weight:700; color:#1E293B;">{{ exp.title }}</span>
-                  {% if exp.company %}<span style="font-size:11.5px; color:#64748B;"> · {{ exp.company }}</span>{% endif %}
+                  <span style="font-size:14px; font-weight:700; color:#1E293B;">{{ exp.title }}</span>
+                  {% if exp.company %}<span style="font-size:13px; color:#64748B;"> · {{ exp.company }}</span>{% endif %}
                 </div>
                 {% if exp.dates %}<span style="font-size:10px; color:#94A3B8; font-style:italic; white-space:nowrap; margin-left:8px;">{{ exp.dates }}</span>{% endif %}
               </div>
               {% if exp.bullets %}
               <ul style="margin:5px 0 0 18px; padding:0;">
                 {% for bullet in exp.bullets %}
-                <li style="font-size:11.5px; color:#334155; margin-bottom:3px; line-height:1.55;">{{ bullet }}</li>
+                <li style="font-size:13px; color:#334155; margin-bottom:3px; line-height:1.55;">{{ bullet }}</li>
                 {% endfor %}
               </ul>
               {% endif %}
@@ -149,13 +149,13 @@
             {% for proj in projects %}
             <div style="margin-bottom:14px;">
               <div>
-                <span style="font-size:12.5px; font-weight:700; color:#1E293B;">{{ proj.name }}</span>
-                {% if proj.tech %}<span style="font-size:10px; color:#6366F1; font-style:italic;"> · {{ proj.tech }}</span>{% endif %}
+                <span style="font-size:14px; font-weight:700; color:#1E293B;">{{ proj.name }}</span>
+                {% if proj.tech %}<span style="font-size:11px; color:#6366F1; font-style:italic;"> · {{ proj.tech }}</span>{% endif %}
               </div>
               {% if proj.bullets %}
               <ul style="margin:5px 0 0 18px; padding:0;">
                 {% for bullet in proj.bullets %}
-                <li style="font-size:11.5px; color:#334155; margin-bottom:3px; line-height:1.55;">{{ bullet }}</li>
+                <li style="font-size:13px; color:#334155; margin-bottom:3px; line-height:1.55;">{{ bullet }}</li>
                 {% endfor %}
               </ul>
               {% endif %}

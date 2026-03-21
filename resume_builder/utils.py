@@ -31,8 +31,16 @@ YOUR FORMATTING RULES:
 1. SUMMARY: Write 2 concise sentences. Use only facts from the profile. NEVER add technologies, companies, or metrics not mentioned.
 2. SKILLS: Parse the skills text into categories. Each category has a name and a list of skills. Keep all skills that were mentioned — do not remove any.
 3. EDUCATION: Parse into a list. Each entry: institution, degree, field, dates (only if mentioned). Use "Not specified" for truly missing dates — do not guess.
-4. EXPERIENCE: Parse into a list of roles. Each role: company, title, dates (only if mentioned), and 2-3 bullet_points. Bullet points MUST start with a strong action verb. ONLY use facts from the input — no invented metrics or responsibilities.
-5. PROJECTS: Parse into a list. Each project: name, tech_stack (only what is mentioned), and 2-3 bullet_points describing what was built and its impact. ONLY from input.
+4. EXPERIENCE: Parse into a list of roles. Each role: company, title, dates (only if mentioned), and 2-3 bullet_points.
+   - Bullet points MUST start with a strong action verb (Led, Built, Developed, Optimized, Designed, etc.)
+   - You MAY elaborate and expand on what the user wrote to make each bullet sound professional and impactful.
+   - You MUST stay faithful to the core facts — do NOT invent new companies, job titles, or technologies not mentioned.
+   - You CAN add professional context, describe likely scope/impact, or rephrase vaguely described tasks using industry-standard language.
+   - Example: "worked on backend" → "Engineered RESTful backend services using Django, improving API response time and enabling scalable data delivery."
+5. PROJECTS: Parse into a list. Each project: name, tech_stack (only what is mentioned), and 2-3 bullet_points.
+   - Same rules as experience — elaborate and make it sound impressive, but do NOT invent technologies, users counts, or data not mentioned.
+   - Describe what was built, the technical approach, and likely impact in professional language.
+   - Example: "made a chatbot" → "Designed and deployed a conversational AI chatbot using Python and OpenAI API, enabling natural language query resolution."
 6. ACHIEVEMENTS: Parse into a clean list of achievement strings. Preserve all numbers/metrics exactly as given. Do NOT modify any numbers.
 
 If a section is empty or says "Not provided", return an empty array [] for it.
