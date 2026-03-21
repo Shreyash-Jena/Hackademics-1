@@ -1,16 +1,17 @@
 # recommendations/views.py
 from django.contrib.auth.decorators import login_required
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from recommendations.ollama_utils import extract_skills_from_profile,match_live_jobs
-from users.models import UserProfile
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
+from django.conf import settings
 import requests
-from resume_builder.models import resume
-from .utils import generate_learning_roadmap , extract_skills_from_profile,fetch_jobs
+import json
+import http.client
+import google.generativeai as genai
 
+from recommendations.ollama_utils import match_live_jobs
+from users.models import UserProfile
+from resume_builder.models import resume
+from .utils import generate_learning_roadmap, extract_skills_from_profile, fetch_jobs
 
 
 @login_required
@@ -46,9 +47,7 @@ Achievements: {user_profile.achievements}
         })
 
     except ObjectDoesNotExist:
-        # Redirect to profile creation or show error
-        return render(request, "base.html"
-        , status=404)
+        return redirect('edit_profile')
         
         
 @login_required
@@ -139,7 +138,7 @@ Only return valid JSON. No commentary. No markdown or code fences. Just the JSON
         return [{"step": f"Error parsing roadmap: {str(e)}", "completed": False}]
     
 @login_required
-def create_roadmap(request,pk):
+def create_roadmap(request, job_title):
     latest_resume = resume.objects.filter(user=request.user).order_by('-created_at').first()
 
     if not latest_resume:
@@ -154,7 +153,7 @@ def create_roadmap(request,pk):
     experience = latest_resume.experience
 
     try:
-        response = generate_learning_roadmap(skills, projects, experience, pk)
+        response = generate_learning_roadmap(skills, projects, experience, job_title)
         steps = parse_roadmap_with_gemini(response)
     except Exception as e:
         error_msg = str(e)
@@ -180,12 +179,6 @@ def create_roadmap(request,pk):
 def target_job_view(request):
     
     return render(request, 'recommendations/targetjob.html')
-    
-import json
-
-import http.client
-import json
-
     
 @login_required
 def job_recommendation_view(request):

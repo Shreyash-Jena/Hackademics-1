@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- AI Loading Overlay -->
+<div id="ai-loading" class="hidden fixed inset-0 z-50 bg-surface-900/80 backdrop-blur-sm flex items-center justify-center">
+  <div class="text-center">
+    <div class="w-16 h-16 mx-auto mb-4 relative">
+      <div class="absolute inset-0 rounded-full border-4 border-emerald-500/20"></div>
+      <div class="absolute inset-0 rounded-full border-4 border-transparent border-t-emerald-400 animate-spin"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
+        </svg>
+      </div>
+    </div>
+    <p class="text-surface-200 font-semibold text-lg">Generating Questions</p>
+    <p class="text-surface-400 text-sm mt-1">AI is crafting personalized competency questions for your role…</p>
+  </div>
+</div>
 <div class="min-h-[70vh] flex items-center justify-center">
   <div class="w-full max-w-md animate-slide-up">
     <!-- Header -->
@@ -52,4 +68,10 @@
     </div>
   </div>
 </div>
+<script>
+  document.querySelector('form').addEventListener('submit', function() {
+    document.getElementById('ai-loading').classList.remove('hidden');
+    this.querySelector('button[type="submit"]').disabled = true;
+  });
+</script>
 {% endblock %}

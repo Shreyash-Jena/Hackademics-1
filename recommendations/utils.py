@@ -70,17 +70,27 @@ def fetch_jobs(keywords, location):
     connection = http.client.HTTPSConnection(host)
     headers = {"Content-type": "application/json"}
 
+    # Build a meaningful search query from extracted skills
+    if isinstance(keywords, list):
+        query = ', '.join(keywords[:5])  # Use top 5 skills as search terms
+    else:
+        query = str(keywords)
+
     body = json.dumps({
-        "keywords": 'Data Science AI engineer',
+        "keywords": query,
+        "location": location or '',
     })
 
-    connection.request('POST', f'/api/{key}', body, headers)
-    response = connection.getresponse()
-    data = response.read().decode()
-    if not data:
-        return []
     try:
+        connection.request('POST', f'/api/{key}', body, headers)
+        response = connection.getresponse()
+        data = response.read().decode()
+        if not data:
+            return []
         parsed_data = json.loads(data)
         return parsed_data.get("jobs", [])
-    except json.JSONDecodeError:
+    except Exception:
         return []
+    finally:
+        connection.close()
+

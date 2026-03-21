@@ -42,7 +42,14 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('landing')
+
+
+def landing_view(request):
+    """Public landing page — redirects authenticated users to dashboard."""
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    return render(request, 'users/landing.html')
 
 
 @login_required
@@ -54,7 +61,7 @@ def dashboard_view(request):
         profile = request.user.userprofile
         profile_completeness = profile.completeness
     except UserProfile.DoesNotExist:
-        return render(request, 'errors/404.html', context)
+        return redirect('edit_profile')
 
     # Stats
     resume_count = resume.objects.filter(user=request.user).count()

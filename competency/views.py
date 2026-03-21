@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required as _login_required
 from .utils import generate_questions_for_job, save_generated_questions
 from .models import Question
 
 
+@_login_required
 def generate_test_questions(request):
     if request.method == 'POST':
         job_role = request.POST.get('job_role')
@@ -86,20 +88,22 @@ def test_result(request, session_id):
     answers = Answer.objects.filter(session=session)
     
     # Batch evaluate all answers using AI if not already evaluated
+    evaluation_failed = False
     if not session.completed:
         from .utils import evaluate_all_answers
         try:
             scores = evaluate_all_answers(answers)
-            
-            # Update each answer with its score
-            for answer in answers:
-                if answer.id in scores:
-                    score = scores[answer.id]
-                    answer.is_correct = score >= 0.5
-                    answer.save()
-        except Exception as e:
-            # If AI evaluation fails, mark all as needing review
-            pass
+            if not scores:
+                evaluation_failed = True
+            else:
+                # Update each answer with its score
+                for answer in answers:
+                    if answer.id in scores:
+                        score = scores[answer.id]
+                        answer.is_correct = score >= 0.5
+                        answer.save()
+        except Exception:
+            evaluation_failed = True
     
     # Calculate final score
     total_answers = answers.count()
@@ -124,7 +128,8 @@ def test_result(request, session_id):
         'session': session,
         'answers': answers,
         'correct_count': correct_answers,
-        'total_count': total_answers
+        'total_count': total_answers,
+        'evaluation_failed': evaluation_failed,
     }) 
     
 @login_required
